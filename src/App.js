@@ -4,6 +4,7 @@ import "./App.css";
 import Register from "./Pages/Register";
 import Login from "./Pages/Login";
 import Home from "./Pages/Home";
+import Stock from "./Pages/Stock";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/" element={<Login/>} />
         <Route path="/register" element={<Register />} />
         <Route path="/home" element={<Home />} />
+        <Route path="home/stock/:index" element={<Stock />} />
       </Routes>
     </BrowserRouter>
   );

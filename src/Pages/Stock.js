@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import StockSlider from "./StockSlider";
-import { SliderData } from "./SliderData";
 
-const Home = () => {
+const Stock = () => {
+
   let email = localStorage.getItem("UserEmail");
+  let image = localStorage.getItem("StockImage");
+  let price = localStorage.getItem("StockPrice");
   let navigate = useNavigate();
 
   function logout() {
@@ -36,10 +37,6 @@ const Home = () => {
       .catch(function (error) {
         console.log(error);
       });
-  };
-
-  const getStock = (id) => {
-    navigate(`stock/${id}`);
   };
 
   return (
@@ -74,21 +71,23 @@ const Home = () => {
         </div>
       </nav>
       <div class="container-flex">
-        <div class="conatainer mt-3 mb-3 ms-3">
-          <p class="fs-3">Welcome, {user.name} </p>
-          <div style={{ textAlign: "center" }}>
-            <h2>List Of Stocks</h2>
-            <p >Click on the stock to view the data.</p>
+        <div class="row">
+          <div class="col-8">
+            <p class="h3 text-center mt-5">Stock Info</p>
+            <div class="text-center mt-5">
+            <img src="https://images.unsplash.com/photo-1546768292-fb12f6c92568?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" height={400}  alt='stock image'></img>
+            </div>
+            
+          </div>
+          <div class="col-4">
+            <div class="h3 text-start " style={{ position: "absolute", top: "50%" }}>
+                <p> Stock Value : 10000</p>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="mt-3 mb-3">
-        <br></br>
-        <StockSlider slides={SliderData} />;
-        {/* <p class="fw-bold text-center mt-2 fs-3">Stock : </p> */}
       </div>
     </div>
   );
 };
 
-export default Home;
+export default Stock;
